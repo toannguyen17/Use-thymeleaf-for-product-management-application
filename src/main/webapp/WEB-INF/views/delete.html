@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete</title>
+</head>
+<body>
+<h1>Xóa sản phẩm</h1>
+<br>
+<a th:href="@{/}">Quay lại danh sách sản phẩm</a>
+<br><br>
+
+<span>Xác nhận xóa sản phẩm.</span>
+<br>
+<br>
+<form th:action="@{delete(id=${product.getId()})}" method="post">
+    <table border="1">
+        <tbody>
+        <tr>
+            <td>Tên sẩn phẩm</td>
+            <td th:text="${product.getName()}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <button type="submit">Xóa</button>
+</form>
+</body>
+</html>

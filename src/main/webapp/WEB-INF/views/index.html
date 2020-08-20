@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+</head>
+<body>
+<h1>Danh sách sản phẩm</h1>
+<br>
+<a th:href="@{/create}">Tạo sản phẩm</a>
+<br>
+<span th:if="${delete}">Xóa thành công.</span>
+<br>
+
+<table border="1">
+    <thead>
+    <tr>
+        <td>ID</td>
+        <td>Tên sản phẩm</td>
+        <td>Giá bán</td>
+        <td>Số lượng</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product: ${products}">
+        <td th:text="${product.id}"></td>
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.price}"></td>
+        <td th:text="${product.quantity}"></td>
+        <td><a th:href="@{update(id=${product.id})}">Sửa</a> - <a th:href="@{delete(id=${product.id})}">Xóa</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
